@@ -55,6 +55,10 @@ public final class HiLog {
     	write(script, 2);
     }
     public static void error(String format, Object...args){
+    	if (args == null || args.length < 1) {
+    		write(format, 3);
+    		return;
+    	}
     	write(String.format(format, args), 3);
     }
     private static IActionP2<String, Integer> onlog = null;
